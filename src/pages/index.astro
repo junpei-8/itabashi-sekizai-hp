@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const services = [
+  ['お墓の御新設工事', ['墓地紹介・法律・墓の一般知識などご相談承ります。', '墓所・御石碑の設計及び施工等、石材工事一式おまかせください。']],
+  ['戒名・年号等追加彫刻', ['いつでもご遺族のタイミングで彫刻します。「納骨式」などの丁度良い区切りまでに故人の名前を彫るケースが一般的です。']],
+  ['お墓の建て替え', ['お墓というと漠然と長持ちするイメージがありますが、お墓の耐久年数は、短くて30年、長くても150年程というのが一般的です。']],
+  ['お墓のリフォーム、補修、耐震補修', ['お墓は頑丈ですが、一年中風雨にさらされ、劣化していきます。風化が進んで墓石が欠けたり、ヒビが入ることもあります。また、地震や台風などの自然災害でも、墓石がズレたり傾いたりする恐れもあります。有限会社板橋石材では、お墓の診断も行っています。']],
+  ['お墓のクリーニング・各種メンテナンス', ['お墓をいつまでも美しく清潔に保つためのメンテナンスサービスをご用意しています。お墓の汚れ、変色、欠け、ずれ、破損、雑草、地震対策など、気になるところを点検してお手入れをします。']],
+  ['お墓の改葬、移設', ['故郷のお墓が遠くて、なかなかお参りできない。', 'お墓を継ぐ人（承継者）がいない。', 'などの理由からお墓を移動する人が増えています。お墓を移動する際には、「改葬」という行政手続きが必要になります。有限会社板橋石材では、お客様のご要望に合わせて、お墓の移動に関するサポートも行っています。']],
+];
+
+const concerns = ['お墓が古くなり、傷みが出てきている', 'お墓が遠方にあり「お墓参り」「お手入れ」に不便を感じている', '分家または独立し、遺骨を他に預けたままである', '現在のお墓を新しくし、独自のものに造り替えたい', '戒名・命日等の追加彫りをしてほしい', '墓石をきれいにしたい', '数ある墓石を整理したい', '分家初代（死者のない）のお墓を建てたい'];
+const types = [
+  ['和型墓', '縦長の直方体の墓石が特徴的で背丈が高めで、江戸時代に一般化した伝統的な墓石です。'],
+  ['洋型墓', '背が低く横に長いお墓で、近年増加しています。公園墓地や芝生墓地によく映える、欧米風の墓石です。モダンで瀟洒な中にも格調があることなどで人気です。'],
+  ['デザイン墓', '石材加工技術の進歩により、オリジナリティーに富んだ、デザイン性のあるお墓です。無宗教の方にも好評です。'],
+];
+const products = '墓石（和型・洋型・デザイン・傾斜型・耐震加工型・免震加工型）・納骨堂・銘碑・物置台・外柵・敷石・記念碑・供養塔・五輪塔・燈篭・経台・地蔵・お社・石像・仏像・門柱・表札・石彫刻品・石碑の文字彫り込み・ペットのお墓'.split('・');
+const info = [['社名', '有限会社板橋石材'], ['所在地', '〒989-4102 宮城県大崎市鹿島台木間塚字小谷地147-7'], ['電話', '0229-25-8445'], ['FAX', '0229-25-8446'], ['営業時間', '08:00〜17:00'], ['休業日', '日曜日']];
+---
+
+<BaseLayout title="墓石のことなら大崎市の有限会社板橋石材へ" description="宮城県大崎市鹿島台の有限会社板橋石材。墓石の新設、建て替え、リフォーム、追加彫刻、クリーニング、改葬・移設までお気軽にご相談ください。">
+  <section id="top" class="relative isolate overflow-hidden">
+    <img src="/images/hero-gravestone.jpeg" alt="墓石と花の写真" class="absolute inset-0 size-full object-cover" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-r from-sumi/88 via-sumi/66 to-sumi/34"></div>
+    <div class="container-wide relative grid min-h-[680px] items-center py-24">
+      <div class="max-w-3xl text-white">
+        <p class="mb-6 text-sm font-bold tracking-[0.32em] text-stone">OSAKI KASHIMADAI</p>
+        <h1 class="font-serif-jp text-4xl font-semibold leading-[1.45] tracking-[0.12em] md:text-6xl">お墓のことなら、<br />何でもお気軽にご相談ください</h1>
+        <p class="mt-8 max-w-2xl text-base leading-9 text-white/88 md:text-lg">和型墓・洋型墓からデザイン墓まで。高品質で耐久性に富み、お手入れしやすいお墓づくりをお手伝いします。</p>
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <a href="tel:0229-25-8445" class="rounded-full bg-rust px-8 py-4 text-center font-bold text-white shadow-xl shadow-rust/25 transition hover:bg-white hover:text-sumi">TEL 0229-25-8445</a>
+          <a href="#services" class="rounded-full border border-white/70 bg-white/10 px-8 py-4 text-center font-bold text-white transition hover:bg-white hover:text-sumi">業務案内を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="greeting" class="scroll-mt-28 container-wide py-20 md:py-28">
+    <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div class="overflow-hidden rounded-[2rem] border border-sumi/10 bg-white shadow-2xl shadow-sumi/10">
+        <img src="/images/greeting-family.jpg" alt="お墓参りをする家族" class="h-full min-h-[360px] w-full object-cover" loading="lazy" />
+      </div>
+      <div>
+        <SectionHeading title="ごあいさつ" subtitle="GREETING" />
+        <div class="paper-panel rounded-[2rem] p-8 md:p-10">
+          <p class="font-serif-jp text-2xl leading-[1.9] tracking-[0.1em] text-sumi">和型墓・洋型墓・デザイン墓。<br />ご希望のお墓を、お手頃な価格で。</p>
+          <div class="mt-8 space-y-6 text-base leading-9 text-ink">
+            <p>有限会社板橋石材店のホームページをご覧頂きましてありがとうございます。</p>
+            <p>当店では、和型墓・洋型墓からデザイン墓など、さまざまなスタイルのお墓作りのお手伝いをしています。高品質で、耐久性に富み、お手入れしやすいお墓など、様々なご要望にお応えします。</p>
+            <p>どんな小さなことでもお気軽にご相談ください。親切・丁寧にお客様のご要望にお答えいたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="consult" class="scroll-mt-28 bg-white/55 py-20 md:py-28">
+    <div class="container-wide">
+      <SectionHeading title="お墓のご相談" subtitle="CONSULTATION" lead="お墓の色々なご相談承ります。どんな小さなことでもお気軽にご相談ください。" />
+      <div class="grid gap-4 md:grid-cols-2">
+        {concerns.map((item) => (
+          <div class="flex gap-4 rounded-2xl border border-sumi/10 bg-washi p-5 shadow-sm shadow-sumi/5">
+            <span class="mt-1 grid size-7 shrink-0 place-items-center rounded-full bg-moss text-xs font-bold text-white">✓</span>
+            <p class="leading-8 text-ink">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="scroll-mt-28 container-wide py-20 md:py-28">
+    <SectionHeading title="業務案内" subtitle="SERVICES" lead="墓所・御石碑の設計及び施工等、石材工事一式おまかせください。" />
+    <div class="grid gap-6">
+      {services.map(([title, paragraphs], i) => (
+        <article class="grid gap-6 rounded-[1.5rem] border border-sumi/10 bg-white/75 p-7 shadow-sm shadow-sumi/5 md:grid-cols-[8rem_1fr] md:p-9">
+          <p class="text-sm font-bold tracking-[0.2em] text-rust">SERVICE {String(i + 1).padStart(2, '0')}</p>
+          <div>
+            <h2 class="font-serif-jp text-2xl font-semibold tracking-[0.1em] text-sumi">{title}</h2>
+            <div class="mt-4 space-y-3 text-base leading-8 text-ink">
+              {(paragraphs as string[]).map((text) => <p>{text}</p>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <article class="mt-8 rounded-[1.5rem] bg-moss p-7 text-white shadow-xl shadow-moss/20 md:p-9">
+      <h2 class="font-serif-jp text-2xl font-semibold tracking-[0.1em]">墓地のメンテナンス</h2>
+      <div class="mt-4 space-y-3 text-base leading-8 text-white/90">
+        <p>墓石の薬品洗浄：水あかなど法事などに合わせて、依頼されることが多いです。磨き直しよりリーズナブルにすみます。</p>
+        <p>目地補修：経年劣化による目地のズレが生じることがあります。防水性にとんだシリコンでの補修が必要です。倒壊事故にもつながりますのでお早めに修復をご検討ください。</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="gravestones" class="scroll-mt-28 bg-white/55 py-20 md:py-28">
+    <div class="container-wide">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <SectionHeading title="墓石の種類" subtitle="GRAVESTONES" lead="以前は定番の和型のお墓を建立される方がほとんどでしたが、最近では、故人の感性や価値観を取り入れた、デザインのお墓が増えています。" />
+        <img src="/images/stone-paper.jpg" alt="石材と設計図の写真" class="h-72 w-full rounded-[2rem] object-cover shadow-xl shadow-sumi/10" loading="lazy" />
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {types.map(([title, text]) => (
+          <article class="rounded-[1.5rem] border border-sumi/10 bg-washi p-7 shadow-sm shadow-sumi/5">
+            <div class="mb-6 grid h-32 place-items-center rounded-2xl stone-texture text-white">
+              <svg viewBox="0 0 80 80" class="size-16" aria-hidden="true"><path fill="currentColor" d="M17 70h46v-9H17v9Zm7-14h32V20L40 8 24 20v36Z" /></svg>
+            </div>
+            <h2 class="font-serif-jp text-2xl font-semibold tracking-[0.12em] text-sumi">{title}</h2>
+            <p class="mt-4 text-base leading-8 text-ink">{text}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-14">
+        <SectionHeading title="取扱品" subtitle="PRODUCTS" lead="国内石豊富にお取扱いしております。" />
+        <div class="flex flex-wrap gap-3">
+          {products.map((item) => <span class="rounded-full border border-sumi/10 bg-white px-4 py-2 text-sm font-medium text-ink shadow-sm shadow-sumi/5">{item}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="company" class="scroll-mt-28 container-wide py-20 md:py-28">
+    <SectionHeading title="会社案内" subtitle="COMPANY" />
+    <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <dl class="paper-panel rounded-[2rem] p-8 md:p-10">
+        {info.map(([term, desc]) => (
+          <div class="border-b border-sumi/10 py-5 last:border-b-0">
+            <dt class="text-sm font-bold tracking-[0.18em] text-mocha">{term}</dt>
+            <dd class="mt-2 text-base leading-8 text-ink">{term === '電話' ? <a class="font-bold text-rust underline-offset-4 hover:underline" href="tel:0229-25-8445">{desc}</a> : desc}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="overflow-hidden rounded-[2rem] border border-sumi/10 bg-white shadow-xl shadow-sumi/8">
+        <iframe title="有限会社板橋石材 Google Maps" src="https://www.google.com/maps?q=%E5%AE%AE%E5%9F%8E%E7%9C%8C%E5%A4%A7%E5%B4%8E%E5%B8%82%E9%B9%BF%E5%B3%B6%E5%8F%B0%E6%9C%A8%E9%96%93%E5%A1%9A%E5%AD%97%E5%B0%8F%E8%B0%B7%E5%9C%B0147-7&output=embed" class="h-[480px] w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="scroll-mt-28 container-wide py-20 md:py-28">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-sumi text-white shadow-2xl shadow-sumi/15">
+      <div class="grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
+        <div>
+          <p class="text-sm font-bold tracking-[0.28em] text-stone">CONTACT</p>
+          <h2 class="mt-3 font-serif-jp text-2xl font-semibold tracking-[0.12em] md:text-4xl">どんな小さなことでもお気軽にご相談ください</h2>
+          <p class="mt-4 text-sm leading-7 text-white/82">親切・丁寧にお客様のご要望にお答えいたします。</p>
+          <dl class="mt-8 grid gap-4 text-sm leading-8 md:grid-cols-3">
+            <div class="rounded-2xl bg-white/10 p-5"><dt class="text-stone">営業時間</dt><dd class="font-semibold text-white">08:00〜17:00</dd></div>
+            <div class="rounded-2xl bg-white/10 p-5"><dt class="text-stone">休業日</dt><dd class="font-semibold text-white">日曜日</dd></div>
+            <div class="rounded-2xl bg-white/10 p-5"><dt class="text-stone">FAX</dt><dd class="font-semibold text-white">0229-25-8446</dd></div>
+          </dl>
+        </div>
+        <a href="tel:0229-25-8445" class="rounded-full bg-rust px-8 py-5 text-center text-2xl font-bold text-white shadow-xl shadow-rust/25 transition hover:bg-white hover:text-sumi md:text-3xl">0229-25-8445</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

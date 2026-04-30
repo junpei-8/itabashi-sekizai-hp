@@ -1,0 +1,49 @@
+---
+const navItems = [
+  { href: '#greeting', label: 'ごあいさつ' },
+  { href: '#consult', label: 'ご相談' },
+  { href: '#services', label: '業務案内' },
+  { href: '#gravestones', label: '墓石の種類' },
+  { href: '#company', label: '会社案内' },
+  { href: '#contact', label: 'お問い合わせ' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-sumi/10 bg-washi/92 backdrop-blur-xl">
+  <div class="container-wide flex min-h-20 items-center justify-between gap-6 py-3">
+    <a href="#top" class="group flex items-center gap-3" aria-label="有限会社板橋石材 ホームへ">
+      <span class="grid size-11 place-items-center rounded-sm stone-texture shadow-lg shadow-sumi/10">
+        <svg viewBox="0 0 32 32" class="size-7 text-washi" aria-hidden="true">
+          <path fill="currentColor" d="M8 27h16v-3H8v3Zm2-5h12V9.8L16 5l-6 4.8V22Z" />
+        </svg>
+      </span>
+      <span>
+        <span class="block font-serif-jp text-lg font-semibold tracking-[0.16em] text-sumi transition group-hover:text-moss">有限会社板橋石材</span>
+        <span class="block text-xs tracking-[0.18em] text-mocha">ITABASHI STONE</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-5 text-sm font-semibold text-ink lg:flex" aria-label="主要ナビゲーション">
+      {navItems.map((item) => (
+        <a class="transition hover:text-rust" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a href="tel:0229-25-8445" class="hidden rounded-full bg-rust px-5 py-2.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-rust/20 transition hover:bg-sumi md:inline-flex">
+      TEL 0229-25-8445
+    </a>
+
+    <details class="group relative lg:hidden">
+      <summary class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-sumi/20 bg-white/70 px-4 py-2 text-sm font-bold text-sumi marker:hidden" aria-label="メニューを開く">
+        <span>メニュー</span>
+        <span class="text-lg leading-none">☰</span>
+      </summary>
+      <div class="absolute right-0 mt-3 w-64 rounded-2xl border border-sumi/10 bg-washi p-3 shadow-2xl shadow-sumi/15">
+        {navItems.map((item) => (
+          <a class="block rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-stone/45" href={item.href}>{item.label}</a>
+        ))}
+        <a class="mt-2 block rounded-xl bg-rust px-4 py-3 text-center text-sm font-bold text-white" href="tel:0229-25-8445">電話する</a>
+      </div>
+    </details>
+  </div>
+</header>

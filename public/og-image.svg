@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">有限会社板橋石材</title>
+  <desc id="desc">宮城県大崎市鹿島台の墓石店。お墓のことなら、何でもお気軽にご相談ください。</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf8f1" />
+      <stop offset="0.55" stop-color="#f2ecdf" />
+      <stop offset="1" stop-color="#ded4c5" />
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2723" />
+      <stop offset="1" stop-color="#171513" />
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9a196" />
+      <stop offset="0.48" stop-color="#716a62" />
+      <stop offset="1" stop-color="#47423d" />
+    </linearGradient>
+    <pattern id="grain" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M8 14c12-7 22-7 36 0M4 42c15-8 29-8 46 1M22 0c-4 16-4 32 0 54" fill="none" stroke="#1f1d1b" stroke-width="1" opacity="0.045" />
+      <circle cx="13" cy="31" r="1.5" fill="#1f1d1b" opacity="0.045" />
+      <circle cx="39" cy="18" r="1.2" fill="#1f1d1b" opacity="0.04" />
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#1f1d1b" flood-opacity="0.22" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#paper)" />
+  <rect width="1200" height="630" fill="url(#grain)" />
+  <circle cx="1020" cy="58" r="250" fill="#5c6b4f" opacity="0.14" />
+  <circle cx="120" cy="558" r="210" fill="#a3403a" opacity="0.07" />
+
+  <rect x="74" y="70" width="1052" height="490" rx="38" fill="url(#card)" filter="url(#softShadow)" />
+  <path d="M94 106h1012" stroke="#f7f3ec" stroke-width="1" opacity="0.13" />
+  <path d="M94 524h1012" stroke="#f7f3ec" stroke-width="1" opacity="0.1" />
+
+  <g opacity="0.16">
+    <path d="M820 488h220v-42H820v42Zm34-78h152V231l-76-66-76 66v179Z" fill="url(#stone)" />
+    <path d="M882 308h96M882 356h96" stroke="#f7f3ec" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+  </g>
+  <g transform="translate(784 172)">
+    <path d="M62 316h260v-48H62v48Zm34-86h192V52L192 0 96 52v178Z" fill="url(#stone)" />
+    <path d="M130 120h124M130 176h124" stroke="#f7f3ec" stroke-width="6" stroke-linecap="round" opacity="0.34" />
+    <path d="M96 52 192 0l96 52" fill="none" stroke="#f7f3ec" stroke-width="3" opacity="0.28" />
+  </g>
+
+  <g font-family="'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif">
+    <text x="134" y="154" fill="#d7d0c4" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="7">OSAKI KASHIMADAI · MIYAGI</text>
+    <text x="132" y="246" fill="#f7f3ec" font-size="68" font-weight="700" letter-spacing="8">有限会社板橋石材</text>
+    <rect x="134" y="286" width="130" height="5" rx="2.5" fill="#a3403a" />
+    <text x="134" y="350" fill="#d7d0c4" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="29" font-weight="600" letter-spacing="4">宮城県大崎市鹿島台の墓石店</text>
+    <text x="132" y="424" fill="#ffffff" font-size="46" font-weight="600" letter-spacing="3">お墓のことなら、</text>
+    <text x="132" y="486" fill="#ffffff" font-size="46" font-weight="600" letter-spacing="3">何でもお気軽にご相談ください</text>
+  </g>
+
+  <g transform="translate(134 516)">
+    <rect width="318" height="54" rx="27" fill="#a3403a" />
+    <text x="159" y="36" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="25" font-weight="800" letter-spacing="1.2">TEL 0229-25-8445</text>
+  </g>
+</svg>

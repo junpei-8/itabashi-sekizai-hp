@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-serif-jp: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --font-sans-jp: "Noto Sans JP", system-ui, sans-serif;
+  --color-sumi: #1f1d1b;
+  --color-washi: #f7f3ec;
+  --color-stone: #d7d0c4;
+  --color-mocha: #8a7665;
+  --color-moss: #5c6b4f;
+  --color-rust: #a3403a;
+  --color-ink: #38332e;
+}
+
+:root {
+  color: var(--color-sumi);
+  background: var(--color-washi);
+  font-family: var(--font-sans-jp);
+  font-feature-settings: "palt";
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(92, 107, 79, 0.08), transparent 28rem),
+    linear-gradient(180deg, #fbf8f2 0%, var(--color-washi) 42%, #efe8dc 100%);
+  color: var(--color-sumi);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+::selection {
+  background: rgba(163, 64, 58, 0.22);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-rust);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: var(--color-sumi);
+  color: var(--color-washi);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.stone-texture {
+  background-color: #746d65;
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.18), transparent 0.5rem),
+    radial-gradient(circle at 80% 35%, rgba(31, 29, 27, 0.18), transparent 0.6rem),
+    radial-gradient(circle at 45% 75%, rgba(255, 255, 255, 0.12), transparent 0.45rem),
+    linear-gradient(135deg, #8f887e 0%, #625d57 50%, #403c38 100%);
+}
+
+.paper-panel {
+  background: rgba(255, 252, 246, 0.78);
+  box-shadow: 0 24px 80px rgba(31, 29, 27, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.container-wide {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
