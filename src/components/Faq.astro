@@ -1,0 +1,70 @@
+---
+import { Card } from '@/components/ui/card';
+
+const faqs = [
+  {
+    question: 'お墓の建て替え時期と費用の目安は？',
+    answer: '墓石の傾き、目地の切れ、外柵のズレ、石の欠けなどが目立ってきたら、補修や建て替えを検討する時期です。費用は墓地の広さ、石種、墓石の形、既存墓石の撤去有無によって変わるため、現地を確認したうえで必要な工事とお見積もりをご案内します。',
+  },
+  {
+    question: '戒名・年号などの追加彫刻は、いつ頃までに依頼すれば良いですか？',
+    answer: '納骨式や法要の日程が決まっている場合は、余裕をもって早めにご相談ください。文字数、彫刻場所、墓石の状態、現地作業が可能かどうかによって日数が変わります。内容に間違いがないよう、彫刻前にしっかり確認して進めます。',
+  },
+  {
+    question: '改葬（お墓の引越し・墓じまい）の手続きはどう進めますか？',
+    answer: '改葬には、現在の墓地管理者への相談、改葬許可申請、新しい納骨先の確認などが必要です。お墓の解体・移設だけでなく、どの順番で進めればよいかも含めてご相談いただけます。',
+  },
+  {
+    question: 'お墓のクリーニングはどのくらいの頻度で必要ですか？',
+    answer: '年に数回のお参りに合わせてお手入れできると安心です。水あか、黒ずみ、苔、目地の劣化、石の欠けなどがある場合は、無理にこすらず専門業者へご相談ください。法要前の清掃にも対応しています。',
+  },
+  {
+    question: '相談・現地調査・見積もりは無料ですか？',
+    answer: 'まずはお電話で内容をお伺いし、現地確認が必要な場合は日程を調整します。工事内容や場所によって条件が変わることがありますので、詳しくはお問い合わせ時にご確認ください。',
+  },
+  {
+    question: '対応エリアはどこまでですか？',
+    answer: '宮城県大崎市鹿島台を中心に、大崎市内、石巻方面など近隣地域からのご相談を承っています。遠方の場合も内容によって対応できることがありますので、まずはご相談ください。',
+  },
+  {
+    question: '取扱いの石種・墓石の形は？',
+    answer: '和型墓、洋型墓、デザイン墓をはじめ、外柵、納骨堂、銘碑、供養塔、燈篭、表札、石彫刻品など石材工事全般を取り扱っています。ご希望、ご予算、墓地の条件、お参りのしやすさを踏まえてご提案します。',
+  },
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section id="faq" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
+  <div class="mb-10">
+    <h2 class="font-serif-jp text-3xl font-semibold tracking-[0.12em] text-foreground md:text-4xl">よくある質問</h2>
+    <p class="mt-5 max-w-3xl text-lg leading-9 text-muted-foreground md:text-xl">費用の目安、工事の流れ、追加彫刻、改葬など、初めての方からよくいただくご相談をまとめました。</p>
+  </div>
+
+  <div class="grid gap-4">
+    {faqs.map((faq) => (
+      <Card className="rounded-3xl bg-card/70 p-0 py-0 shadow-sm shadow-foreground/5 has-[details[open]]:bg-card">
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-start justify-between gap-6 font-serif-jp text-xl font-semibold leading-9 tracking-[0.08em] text-foreground marker:hidden">
+            <span>{faq.question}</span>
+            <span class="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-primary transition group-open:rotate-45">＋</span>
+          </summary>
+          <p class="mt-4 border-t border-border pt-4 text-base leading-8 text-muted-foreground md:text-lg">{faq.answer}</p>
+        </details>
+      </Card>
+    ))}
+  </div>
+</section>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />

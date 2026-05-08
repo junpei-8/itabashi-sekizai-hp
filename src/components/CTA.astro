@@ -1,15 +1,21 @@
-<section class="container-wide py-16">
-  <div class="overflow-hidden rounded-[2rem] bg-sumi text-white shadow-2xl shadow-sumi/15">
-    <div class="grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
+---
+import { buttonVariants } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { MessageCircle, Phone } from 'lucide-react';
+---
+
+<section class="container mx-auto px-4 py-16">
+  <Card className="rounded-[2rem] bg-foreground p-0 py-0 text-background">
+    <CardContent className="grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
       <div>
-        <p class="text-sm font-bold tracking-[0.28em] text-stone">CONTACT</p>
-        <h2 class="mt-3 font-serif-jp text-2xl font-semibold tracking-[0.12em] md:text-4xl">どんな小さなことでもお気軽にご相談ください</h2>
-        <p class="mt-4 text-sm leading-7 text-white/82">親切・丁寧にお客様のご要望にお答えいたします。</p>
+        <p class="text-base font-bold tracking-[0.28em] text-muted">お問い合わせ</p>
+        <h2 class="mt-3 font-serif-jp text-2xl font-semibold tracking-[0.12em] md:text-4xl">お墓のことで迷ったら、まずはご相談ください</h2>
+        <p class="mt-4 text-base leading-8 text-background/82">新設・建て替え・追加彫刻・清掃・改葬まで、現地の状況に合わせてご案内します。</p>
       </div>
       <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
-        <a href="tel:0229-25-8445" class="rounded-full bg-rust px-7 py-4 text-center font-bold text-white transition hover:bg-white hover:text-sumi">TEL 0229-25-8445</a>
-        <a href="#contact" class="rounded-full border border-white/45 bg-white/8 px-7 py-4 text-center font-bold text-white transition hover:bg-white hover:text-sumi">お問い合わせ案内</a>
+        <a href="tel:0229-25-8445" class={buttonVariants({ size: 'lg', className: 'gap-2 text-center' })}><Phone className="size-5" aria-hidden="true" />0229-25-8445</a>
+        <a href="#contact" class={buttonVariants({ size: 'lg', variant: 'heroOutline', className: 'gap-2 border-background/45 bg-background/8 text-center hover:bg-background/14' })}><MessageCircle className="size-5" aria-hidden="true" />お問い合わせ案内</a>
       </div>
-    </div>
-  </div>
+    </CardContent>
+  </Card>
 </section>

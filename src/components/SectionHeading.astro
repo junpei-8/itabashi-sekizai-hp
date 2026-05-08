@@ -1,16 +1,12 @@
 ---
 interface Props {
   title: string;
-  subtitle: string;
   lead?: string;
 }
-const { title, subtitle, lead } = Astro.props;
+const { title, lead } = Astro.props;
 ---
 
 <div class="mb-10">
-  <p class="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-rust">
-    <span class="h-px w-10 bg-rust"></span>{subtitle}
-  </p>
-  <h2 class="font-serif-jp text-3xl font-semibold tracking-[0.12em] text-sumi md:text-4xl">{title}</h2>
-  {lead && <p class="mt-5 max-w-3xl text-base leading-8 text-ink md:text-lg">{lead}</p>}
+  <h2 class="font-serif-jp text-3xl font-semibold tracking-[0.12em] text-foreground md:text-4xl">{title}</h2>
+  {lead && <p class="mt-5 max-w-3xl text-lg leading-9 text-muted-foreground md:text-xl">{lead}</p>}
 </div>

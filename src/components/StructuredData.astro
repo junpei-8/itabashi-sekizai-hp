@@ -1,0 +1,49 @@
+---
+const site = Astro.site ?? new URL('https://www.itabashisekizai.com');
+const url = new URL('/', site).toString();
+const image = new URL('/og-image.png', site).toString();
+const gbpUrl = import.meta.env.PUBLIC_GBP_URL;
+
+const sameAs = gbpUrl ? [gbpUrl] : [];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Stonemason',
+  '@id': `${url}#business`,
+  name: '有限会社板橋石材',
+  image,
+  url,
+  telephone: '+81-229-25-8445',
+  faxNumber: '+81-229-25-8446',
+  address: {
+    '@type': 'PostalAddress',
+    postalCode: '989-4102',
+    addressRegion: '宮城県',
+    addressLocality: '大崎市',
+    streetAddress: '鹿島台木間塚字小谷地147-7',
+    addressCountry: 'JP',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 38.585,
+    longitude: 141.09,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+  ],
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: '宮城県大崎市' },
+    { '@type': 'AdministrativeArea', name: '宮城県石巻市' },
+    { '@type': 'Place', name: '鹿島台' },
+  ],
+  priceRange: '¥¥',
+  sameAs,
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />

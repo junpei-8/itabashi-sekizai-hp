@@ -1,7 +1,19 @@
-<a
-  href="tel:0229-25-8445"
-  class="fixed inset-x-4 bottom-4 z-50 flex items-center justify-center rounded-full bg-rust px-6 py-4 text-base font-bold tracking-wide text-white shadow-2xl shadow-rust/30 md:hidden"
-  aria-label="有限会社板橋石材へ電話をかける"
->
-  TEL 0229-25-8445
-</a>
+---
+import { buttonVariants } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
+---
+
+<a href="tel:0229-25-8445" aria-label="有限会社板橋石材へ電話をかける" class={buttonVariants({ size: 'icon-lg', className: 'fixed bottom-4 left-4 z-50 shadow-lg shadow-primary/25 md:hidden' })}><Phone className="size-5" aria-hidden="true" /></a>
+
+<script is:inline>
+  const callButton = document.querySelector('a[aria-label="有限会社板橋石材へ電話をかける"]');
+
+  const toggleCallButton = () => {
+    if (!(callButton instanceof HTMLElement)) return;
+
+    callButton.classList.toggle('hidden', window.scrollY < 160);
+  };
+
+  toggleCallButton();
+  window.addEventListener('scroll', toggleCallButton, { passive: true });
+</script>

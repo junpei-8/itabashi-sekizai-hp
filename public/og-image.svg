@@ -28,8 +28,8 @@
 
   <rect width="1200" height="630" fill="url(#paper)" />
   <rect width="1200" height="630" fill="url(#grain)" />
-  <circle cx="1020" cy="58" r="250" fill="#5c6b4f" opacity="0.14" />
-  <circle cx="120" cy="558" r="210" fill="#a3403a" opacity="0.07" />
+  <circle cx="1020" cy="58" r="250" fill="#b7a1d8" opacity="0.14" />
+  <circle cx="120" cy="558" r="210" fill="#b7a1d8" opacity="0.07" />
 
   <rect x="74" y="70" width="1052" height="490" rx="38" fill="url(#card)" filter="url(#softShadow)" />
   <path d="M94 106h1012" stroke="#f7f3ec" stroke-width="1" opacity="0.13" />
@@ -46,16 +46,16 @@
   </g>
 
   <g font-family="'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif">
-    <text x="134" y="154" fill="#d7d0c4" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="7">OSAKI KASHIMADAI · MIYAGI</text>
+    <text x="134" y="154" fill="#d7d0c4" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="7">宮城県大崎市鹿島台</text>
     <text x="132" y="246" fill="#f7f3ec" font-size="68" font-weight="700" letter-spacing="8">有限会社板橋石材</text>
-    <rect x="134" y="286" width="130" height="5" rx="2.5" fill="#a3403a" />
+    <rect x="134" y="286" width="130" height="5" rx="2.5" fill="#b7a1d8" />
     <text x="134" y="350" fill="#d7d0c4" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="29" font-weight="600" letter-spacing="4">宮城県大崎市鹿島台の墓石店</text>
     <text x="132" y="424" fill="#ffffff" font-size="46" font-weight="600" letter-spacing="3">お墓のことなら、</text>
     <text x="132" y="486" fill="#ffffff" font-size="46" font-weight="600" letter-spacing="3">何でもお気軽にご相談ください</text>
   </g>
 
   <g transform="translate(134 516)">
-    <rect width="318" height="54" rx="27" fill="#a3403a" />
-    <text x="159" y="36" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="25" font-weight="800" letter-spacing="1.2">TEL 0229-25-8445</text>
+    <rect width="318" height="54" rx="27" fill="#b7a1d8" />
+    <text x="159" y="36" text-anchor="middle" fill="#2f263d" font-family="'Noto Sans JP', system-ui, sans-serif" font-size="25" font-weight="800" letter-spacing="1.2">電話 0229-25-8445</text>
   </g>
 </svg>

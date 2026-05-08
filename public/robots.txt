@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.itabashisekizai.com/sitemap.xml
+Sitemap: https://www.itabashisekizai.com/sitemap-index.xml
