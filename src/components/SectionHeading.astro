@@ -6,7 +6,7 @@ interface Props {
 const { title, lead } = Astro.props;
 ---
 
-<div class="mb-10">
+<div class="mb-12">
   <h2 class="font-serif-jp text-3xl font-semibold tracking-[0.12em] text-foreground md:text-4xl">{title}</h2>
-  {lead && <p class="mt-5 max-w-3xl text-lg leading-9 text-muted-foreground md:text-xl">{lead}</p>}
+  {lead && <p class="mt-5 max-w-3xl whitespace-pre-line text-lg leading-9 text-muted-foreground md:text-xl">{lead}</p>}
 </div>

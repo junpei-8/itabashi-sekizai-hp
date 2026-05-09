@@ -7,20 +7,17 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
 const navItems = [
-  { href: "#greeting", label: "ごあいさつ" },
-  { href: "#consult", label: "ご相談" },
-  { href: "#services", label: "業務案内" },
-  { href: "#gravestones", label: "墓石の種類" },
-  { href: "#faq", label: "よくある質問" },
-  { href: "#company", label: "会社案内" },
-  { href: "#contact", label: "お問い合わせ" },
+  { href: "#top", label: "概要", sectionIds: ["top", "consult"] },
+  { href: "#services", label: "業務案内", sectionIds: ["services", "gravestones", "products"] },
+  { href: "#faq", label: "よくある質問", sectionIds: ["faq"] },
+  { href: "#company", label: "会社案内", sectionIds: ["company"] },
+  { href: "#access", label: "アクセス", sectionIds: ["access", "contact"] },
 ]
 
 function scrollToSection(href: string) {
@@ -59,51 +56,66 @@ function AnchorButton({ href, children, className, variant = "ghost" }: {
 
 export default function HeaderClient() {
   const [activeId, setActiveId] = useState<string | null>(null)
+  const [isAtTop, setIsAtTop] = useState(true)
 
   useEffect(() => {
-    const ids = navItems.map((item) => item.href.slice(1))
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((element): element is HTMLElement => Boolean(element))
+    const updateActiveId = () => {
+      const nextIsAtTop = window.scrollY < 8
+      setIsAtTop(nextIsAtTop)
 
-    if (!elements.length) return
+      if (nextIsAtTop) {
+        setActiveId(null)
+        return
+      }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const activeEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)[0]
+      const marker = window.scrollY + window.innerHeight * 0.35
+      const sections = navItems.flatMap((item) =>
+        item.sectionIds.map((sectionId) => ({
+          navId: item.href.slice(1),
+          element: document.getElementById(sectionId),
+        })),
+      )
 
-        setActiveId(activeEntry?.target.id ?? null)
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
-    )
+      const current = sections
+        .filter((section): section is { navId: string; element: HTMLElement } => Boolean(section.element))
+        .filter(({ element }) => element.offsetTop <= marker)
+        .at(-1)
 
-    elements.forEach((element) => observer.observe(element))
+      setActiveId(current?.navId ?? navItems[0]?.href.slice(1) ?? null)
+    }
 
-    return () => observer.disconnect()
+    updateActiveId()
+    window.addEventListener("scroll", updateActiveId, { passive: true })
+    window.addEventListener("resize", updateActiveId)
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveId)
+      window.removeEventListener("resize", updateActiveId)
+    }
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-border bg-background">
-      <div className="container mx-auto flex min-h-20 items-center justify-between gap-6 px-4 py-3">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 border-b-2 transition-colors duration-200",
+        isAtTop ? "border-transparent bg-transparent text-background" : "border-border bg-background text-foreground",
+      )}
+    >
+      <div className="container mx-auto flex min-h-16 items-center justify-between gap-5 px-4 py-2">
         <a
           href="#top"
-          className="group flex shrink-0 items-center gap-3"
+          className="group flex shrink-0 items-center gap-2.5"
           aria-label="有限会社板橋石材 ホームへ"
           onClick={(event) => {
             event.preventDefault()
             scrollToSection("#top")
           }}
         >
-          <img src="/logo.svg" alt="" className="size-11 shrink-0 rounded-sm" width="44" height="44" decoding="async" />
-          <span className="whitespace-nowrap">
-            <span className="block font-serif-jp text-lg font-semibold tracking-[0.16em] text-foreground">有限会社板橋石材</span>
-            <span className="block text-base tracking-[0.14em] text-muted-foreground">宮城県大崎市鹿島台</span>
-          </span>
+          <img src="/logo.svg" alt="" className="size-9 shrink-0 rounded-sm" width="36" height="36" decoding="async" />
+          <span className={cn("whitespace-nowrap font-serif-jp text-base font-semibold tracking-[0.12em]", isAtTop ? "text-background" : "text-foreground")}>有限会社板橋石材</span>
         </a>
 
-        <nav className="hidden items-center gap-2 xl:flex" aria-label="主要ナビゲーション">
+        <nav className="hidden items-center gap-2 lg:flex" aria-label="主要ナビゲーション">
           {navItems.map((item) => {
             const id = item.href.slice(1)
             const isActive = activeId === id
@@ -113,8 +125,15 @@ export default function HeaderClient() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "h-10 px-4 text-base font-extrabold hover:bg-muted",
-                  isActive ? "text-primary hover:text-primary" : "text-foreground hover:text-foreground",
+                  "h-8 px-3 text-sm font-extrabold",
+                  isAtTop ? "hover:bg-background/10 hover:text-background" : "hover:bg-muted",
+                  isActive
+                    ? isAtTop
+                      ? "text-background underline underline-offset-4"
+                      : "text-primary hover:text-primary"
+                    : isAtTop
+                      ? "text-background"
+                      : "text-foreground hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -123,32 +142,38 @@ export default function HeaderClient() {
           })}
         </nav>
 
-        <Button asChild variant="ghost" className="hidden h-11 gap-2 px-5 text-base font-bold tracking-wide xl:inline-flex">
+        <Button
+          asChild
+          variant="ghost"
+          className={cn(
+            "hidden h-8 gap-2 px-4 text-sm font-bold tracking-wide lg:inline-flex",
+            isAtTop ? "text-background hover:bg-background/10 hover:text-background" : "text-foreground hover:text-foreground",
+          )}
+        >
           <a href="tel:0229-25-8445"><Phone className="size-4" aria-hidden="true" />0229-25-8445</a>
         </Button>
 
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-lg" aria-label="メニューを開く">
+              <Button variant="ghost" size="icon-lg" aria-label="メニューを開く" className={cn(isAtTop && "text-background hover:bg-background/10 hover:text-background")}>
                 <Menu className="size-5" aria-hidden="true" />
               </Button>
             </SheetTrigger>
             <SheetContent>
             <SheetHeader>
               <SheetTitle>有限会社板橋石材</SheetTitle>
-              <SheetDescription>宮城県大崎市鹿島台</SheetDescription>
             </SheetHeader>
             <nav className="grid gap-2" aria-label="スマートフォン用ナビゲーション">
               {navItems.map((item) => (
                 <SheetClose asChild key={item.href}>
-                  <AnchorButton href={item.href} className="w-full justify-start rounded-xl px-4 py-3 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground">
+                  <AnchorButton href={item.href} className="w-full justify-start rounded-xl px-4 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground">
                     {item.label}
                   </AnchorButton>
                 </SheetClose>
               ))}
             </nav>
-            <Button asChild variant="outline" className="mt-auto w-full gap-2 rounded-xl py-3 text-base font-bold">
+            <Button asChild variant="outline" className="mt-auto w-full gap-2 rounded-xl py-3 text-sm font-bold">
               <a href="tel:0229-25-8445"><Phone className="size-4" aria-hidden="true" />0229-25-8445</a>
             </Button>
             </SheetContent>

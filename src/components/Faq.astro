@@ -1,5 +1,6 @@
 ---
-import { Card } from '@/components/ui/card';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { FaqList } from '@/components/FaqList';
 
 const faqs = [
   {
@@ -46,24 +47,10 @@ const structuredData = {
 };
 ---
 
-<section id="faq" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
-  <div class="mb-10">
-    <h2 class="font-serif-jp text-3xl font-semibold tracking-[0.12em] text-foreground md:text-4xl">よくある質問</h2>
-    <p class="mt-5 max-w-3xl text-lg leading-9 text-muted-foreground md:text-xl">費用の目安、工事の流れ、追加彫刻、改葬など、初めての方からよくいただくご相談をまとめました。</p>
-  </div>
-
-  <div class="grid gap-4">
-    {faqs.map((faq) => (
-      <Card className="rounded-3xl bg-card/70 p-0 py-0 shadow-sm shadow-foreground/5 has-[details[open]]:bg-card">
-        <details class="group p-6">
-          <summary class="flex cursor-pointer list-none items-start justify-between gap-6 font-serif-jp text-xl font-semibold leading-9 tracking-[0.08em] text-foreground marker:hidden">
-            <span>{faq.question}</span>
-            <span class="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-primary transition group-open:rotate-45">＋</span>
-          </summary>
-          <p class="mt-4 border-t border-border pt-4 text-base leading-8 text-muted-foreground md:text-lg">{faq.answer}</p>
-        </details>
-      </Card>
-    ))}
+<section id="faq" class="scroll-mt-28 bg-background py-20 md:py-28">
+  <div class="container mx-auto px-4">
+    <SectionHeading title="よくある質問" lead="費用の目安、工事の流れ、追加彫刻、改葬など、初めての方からよくいただくご相談をまとめました。" />
+    <FaqList faqs={faqs} client:load />
   </div>
 </section>
 

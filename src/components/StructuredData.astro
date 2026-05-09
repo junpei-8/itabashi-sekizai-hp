@@ -3,8 +3,7 @@ const site = Astro.site ?? new URL('https://www.itabashisekizai.com');
 const url = new URL('/', site).toString();
 const image = new URL('/og-image.png', site).toString();
 const gbpUrl = import.meta.env.PUBLIC_GBP_URL;
-
-const sameAs = gbpUrl ? [gbpUrl] : [];
+const sameAs = gbpUrl ? [gbpUrl] : undefined;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -42,7 +41,7 @@ const structuredData = {
     { '@type': 'Place', name: '鹿島台' },
   ],
   priceRange: '¥¥',
-  sameAs,
+  ...(sameAs ? { sameAs } : {}),
 };
 ---
 

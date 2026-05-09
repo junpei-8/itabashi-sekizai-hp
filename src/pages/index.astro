@@ -45,6 +45,7 @@ const types = [
 ];
 const products = ['墓石（和型・洋型・デザイン・傾斜型・耐震加工型・免震加工型）', '納骨堂', '銘碑', '物置台', '外柵', '敷石', '記念碑', '供養塔', '五輪塔', '燈篭', '経台', '地蔵', 'お社', '石像', '仏像', '門柱', '表札', '石彫刻品', '石碑の文字彫り込み', 'ペットのお墓'];
 const info = [['社名', '有限会社板橋石材'], ['所在地', '〒989-4102 宮城県大崎市鹿島台木間塚字小谷地147-7'], ['電話', '0229-25-8445'], ['ファックス', '0229-25-8446'], ['営業時間', '08:00〜17:00'], ['休業日', '日曜日']];
+const accessLead = '有限会社板橋石材は、宮城県大崎市鹿島台木間塚字小谷地147-7にあります。\nやすらぎホールかしまだい方面へ向かい、その通路を進んでいただくと当店があります。道順が不安な場合は、ご来店前にお電話ください。';
 const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
 ---
 
@@ -52,47 +53,30 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
   <section id="top" class="relative isolate overflow-hidden">
     <img src="/images/hero-gravestone.jpeg" alt="宮城県大崎市鹿島台 板橋石材が手がけた墓石" class="absolute inset-0 size-full object-cover" loading="eager" fetchpriority="high" />
     <div class="absolute inset-0 bg-gradient-to-r from-foreground/88 via-foreground/66 to-foreground/34"></div>
-    <div class="container relative mx-auto grid min-h-[680px] items-center px-4 py-24">
+    <div class="container relative mx-auto grid min-h-svh items-center px-4 pb-20 pt-28 md:pt-32">
       <div class="max-w-3xl text-background">
-        <p class="mb-6 text-base font-bold tracking-[0.24em] text-muted">宮城県大崎市鹿島台の石材店</p>
+        <p class="mb-6 text-lg font-bold tracking-[0.22em] text-muted md:text-xl">宮城県大崎市鹿島台の石材店</p>
         <h1 class="font-serif-jp text-4xl font-semibold leading-[1.45] tracking-[0.12em] md:text-6xl">お墓のことなら、<br class="sm:hidden" />何でも<br />お気軽にご相談ください</h1>
         <p class="mt-8 max-w-2xl text-lg leading-9 text-background/88 md:text-xl">宮城県大崎市鹿島台を拠点に、墓石の新設・建て替え・追加彫刻・クリーニング・改葬まで、地域のお墓まわりを丁寧にお手伝いします。</p>
-        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-          <a href="tel:0229-25-8445" class={buttonVariants({ size: 'lg', className: 'gap-2 text-center' })}><Phone className="size-5" aria-hidden="true" />0229-25-8445</a>
-          <a href="#services" class={buttonVariants({ size: 'lg', variant: 'heroOutline', className: 'gap-2 text-center' })}><MessageCircle className="size-5" aria-hidden="true" />業務案内を見る</a>
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <a href="tel:0229-25-8445" class={buttonVariants({ size: 'lg', className: 'gap-2 px-6 py-6 text-center text-lg font-bold md:text-xl' })}><Phone className="size-5" aria-hidden="true" />0229-25-8445</a>
+          <a href="#access" class={buttonVariants({ size: 'lg', className: 'gap-2 !bg-accent px-6 py-6 text-center text-lg font-bold !text-accent-foreground hover:!bg-accent/90 md:text-xl' })}><MapPin className="size-5" aria-hidden="true" />アクセスを確認する</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="greeting" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
-    <SectionHeading title="ごあいさつ" />
-    <div class="grid items-stretch gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-      <div class="space-y-6">
-        <h3 class="font-serif-jp text-xl font-semibold leading-[1.8] tracking-[0.1em] text-foreground md:text-2xl">大切なお墓を、<br />長く安心して守れる形に。</h3>
-        <div class="space-y-6 text-lg leading-9 text-muted-foreground">
-          <p>有限会社板橋石材のホームページをご覧いただき、ありがとうございます。</p>
-          <p>当店では、和型墓・洋型墓・デザイン墓の新設はもちろん、追加彫刻、建て替え、補修、クリーニング、改葬まで、お墓に関する幅広いご相談を承っています。</p>
-          <p>石の種類や形、費用、工事の進め方は、ご家族ごとに最適な答えが異なります。まずは今のお困りごとやご希望をお聞かせください。無理のない形で、わかりやすくご提案します。</p>
-        </div>
-      </div>
-      <Card className="h-full overflow-hidden rounded-[2rem] bg-card p-0 py-0">
-        <img src="/images/greeting-family.jpg" alt="宮城県大崎市鹿島台でお墓参りをするご家族" class="aspect-[4/3] h-full w-full object-cover" loading="lazy" />
-      </Card>
-    </div>
-  </section>
-
-  <section id="consult" class="scroll-mt-28 bg-card/55 py-20 md:py-28">
+  <section id="consult" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="お墓のご相談" lead="小さな不安の段階でご相談いただくことで、補修で済む場合もあります。新設・建て替えだけでなく、点検やお手入れのご相談もお気軽にどうぞ。" />
       <div class="grid gap-5 md:grid-cols-2">
         {concerns.map(({ text, Icon }) => (
-          <Card className="rounded-2xl bg-background p-6 py-6">
-            <CardContent className="flex gap-4 p-0">
-              <span class="mt-1 grid size-10 shrink-0 place-items-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/15">
+          <Card className="justify-center gap-0 rounded-2xl bg-background p-4 py-4 md:p-5 md:py-5">
+            <CardContent className="flex items-center gap-3 p-0 md:gap-4">
+              <span class="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/15 md:size-10">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
-              <p class="text-lg font-medium leading-9 text-foreground md:text-xl">{text}</p>
+              <p class="text-base font-medium leading-8 text-foreground md:text-lg">{text}</p>
             </CardContent>
           </Card>
         ))}
@@ -100,25 +84,27 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="services" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
-    <SectionHeading title="業務案内" lead="墓石の新設から補修・清掃・改葬まで、現地の状況を確認しながら必要な工事をご提案します。" />
-    <div class="grid gap-6">
+  <section id="services" class="scroll-mt-28 bg-background py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <SectionHeading title="業務案内" lead="墓石の新設から補修・清掃・改葬まで、現地の状況を確認しながら必要な工事をご提案します。" />
+      <div class="grid gap-6">
       {services.map(([title, paragraphs], i) => (
-        <Card className="grid gap-7 rounded-[1.5rem] bg-card/75 p-7 py-7 md:grid-cols-[7rem_1fr] md:gap-9 md:p-9 md:py-9">
+        <Card className="grid gap-5 rounded-[1.5rem] bg-card p-5 py-5 md:grid-cols-[6rem_1fr] md:gap-7 md:p-7 md:py-7">
           <div class="grid place-items-center self-stretch text-center text-primary">
             <div>
-              <p class="text-base font-bold leading-none tracking-[0.2em]">業務案内</p>
-              <p class="mt-2 font-serif-jp text-4xl font-semibold leading-none tracking-[0.02em] md:text-5xl">{String(i + 1).padStart(2, '0')}</p>
+              <p class="text-sm font-bold leading-none tracking-[0.2em] md:text-base">業務案内</p>
+              <p class="mt-2 font-serif-jp text-3xl font-semibold leading-none tracking-[0.02em] md:text-4xl">{String(i + 1).padStart(2, '0')}</p>
             </div>
           </div>
           <CardContent className="p-0">
-            <CardTitle className="font-serif-jp text-2xl font-semibold tracking-[0.1em] text-foreground">{title}</CardTitle>
-            <div class="mt-4 space-y-3 text-lg leading-9 text-muted-foreground">
+            <CardTitle className="font-serif-jp text-xl font-semibold tracking-[0.1em] text-foreground md:text-2xl">{title}</CardTitle>
+            <div class="mt-3 space-y-2 text-base leading-8 text-muted-foreground md:text-lg">
               {(paragraphs as string[]).map((text) => <p>{text}</p>)}
             </div>
           </CardContent>
         </Card>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 
@@ -127,9 +113,9 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
       <SectionHeading title="墓石の種類" lead="お墓の形は、ご家族の想い・墓地の広さ・お参りのしやすさによって適したものが変わります。伝統的な和型墓、すっきりとした洋型墓、想いを形にするデザイン墓まで、石材選びから設計・施工まで丁寧にご提案します。" />
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {types.map(({ title, text, variant }) => (
-          <Card className="rounded-[1.5rem] bg-background p-7 py-7">
-            <div class="mb-2 overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-muted/80 to-card">
-              <div class="relative grid h-40 place-items-end px-6 pt-6">
+          <Card className="rounded-[1.5rem] bg-background p-5 py-5 md:p-6 md:py-6">
+            <div class="mb-1 overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-muted/80 to-card">
+              <div class="relative grid h-36 place-items-end px-5 pt-5 md:h-40 md:px-6 md:pt-6">
                 <div class="absolute inset-x-0 bottom-0 h-9 bg-primary/10"></div>
                 <svg viewBox="0 0 220 150" class="relative z-10 h-36 w-full text-foreground drop-shadow-lg" role="img" aria-label={`${title}の形を表したサムネイル`}>
                   {variant === 'japanese' && (
@@ -162,81 +148,93 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
               </div>
             </div>
             <CardHeader className="p-0">
-              <CardTitle className="font-serif-jp text-2xl font-semibold tracking-[0.12em] text-foreground">{title}</CardTitle>
+              <CardTitle className="font-serif-jp text-xl font-semibold tracking-[0.12em] text-foreground md:text-2xl">{title}</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <p class="text-lg leading-9 text-muted-foreground">{text}</p>
+              <p class="text-base leading-8 text-muted-foreground md:text-lg">{text}</p>
             </CardContent>
           </Card>
         ))}
       </div>
-      <div class="mt-14">
-        <SectionHeading title="取扱品" lead="墓石だけでなく、外柵・納骨堂・記念碑・表札など、石材工事全般に対応しています。" />
-        <div class="flex flex-wrap gap-3">
-          {products.map((item) => <Badge variant="outline" className="h-auto rounded-full bg-card px-5 py-3 text-lg font-semibold text-muted-foreground">{item}</Badge>)}
-        </div>
+    </div>
+  </section>
+
+  <section id="products" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <SectionHeading title="取扱品" lead="墓石だけでなく、外柵・納骨堂・記念碑・表札など、石材工事全般に対応しています。" />
+      <div class="flex flex-wrap gap-3">
+        {products.map((item) => <Badge variant="outline" className="h-auto rounded-full bg-card px-5 py-3 text-lg font-semibold text-muted-foreground">{item}</Badge>)}
       </div>
     </div>
   </section>
 
   <Faq />
 
-  <section id="company" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
-    <SectionHeading title="会社案内" />
-    <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-      <Card className="rounded-[2rem] bg-card/80 p-8 py-8 backdrop-blur-xl md:p-10 md:py-10">
-        <dl>
+  <section id="company" class="scroll-mt-28 bg-card/55 py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <SectionHeading title="会社案内" lead="宮城県大崎市鹿島台で、墓石工事・追加彫刻・補修・クリーニング・改葬まで承っています。ご来店前の確認や、現地でのお墓の状態確認もお気軽にお問い合わせください。" />
+      <Card className="rounded-[2rem] bg-card/80 p-5 py-5 backdrop-blur-xl md:p-7 md:py-7">
+        <dl class="grid gap-x-10 md:grid-cols-2">
           {info.map(([term, desc]) => (
-            <div class="border-b border-border py-5 last:border-b-0">
+            <div class="border-b border-border py-4">
               <dt class="text-base font-bold tracking-[0.18em] text-muted-foreground">{term}</dt>
               <dd class="mt-2 text-lg leading-9 text-muted-foreground">{term === '電話' ? <a class="font-bold text-primary underline underline-offset-4 decoration-primary/35" href="tel:0229-25-8445">{desc}</a> : desc}</dd>
             </div>
           ))}
         </dl>
       </Card>
+    </div>
+  </section>
+
+  <section id="access" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <SectionHeading title="アクセス" lead={accessLead} />
+      <div class="grid gap-8 lg:grid-cols-2">
+      <Card className="overflow-hidden rounded-[2rem] bg-muted p-0 py-0">
+        <img src="/images/company-exterior.jpeg" alt="宮城県大崎市鹿島台にある有限会社板橋石材の外観" class="aspect-square w-full object-cover" loading="lazy" />
+      </Card>
       <Card className="relative gap-0 rounded-[2rem] bg-background p-0 py-0">
-        <div class="relative h-[420px] w-full md:h-full md:min-h-[420px]">
+        <div class="relative aspect-square w-full overflow-hidden rounded-[2rem]">
           <div class="map-loading absolute inset-0 z-10 grid place-items-center bg-background text-base text-muted-foreground">
             <span class="flex items-center gap-2">
               <MapPin className="size-5 animate-pulse" aria-hidden="true" />
               地図を読み込み中…
             </span>
           </div>
-          <iframe title="有限会社板橋石材 Google Maps" src="https://www.google.com/maps?q=%E5%AE%AE%E5%9F%8E%E7%9C%8C%E5%A4%A7%E5%B4%8E%E5%B8%82%E9%B9%BF%E5%B3%B6%E5%8F%B0%E6%9C%A8%E9%96%93%E5%A1%9A%E5%AD%97%E5%B0%8F%E8%B0%B7%E5%9C%B0147-7&output=embed" class="relative z-0 h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onload="this.parentElement.querySelector('.map-loading').style.display='none'"></iframe>
-          <a href="https://share.google/JNBKlZEPErA2eqXlj" target="_blank" rel="noopener noreferrer" class="absolute bottom-5 left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-base font-bold text-[LinkText] shadow-lg shadow-foreground/10 transition hover:bg-background">
+          <iframe title="有限会社板橋石材 Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3123.369211229269!2d141.10514077644947!3d38.47912167127498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f890b2a66e7eab9%3A0x60446b3f3076506d!2z44iy5p2_5qmL55-z5p2Q!5e0!3m2!1sja!2sjp!4v1778219030815!5m2!1sja!2sjp" class="relative z-0 h-full w-full border-0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" onload="this.parentElement.querySelector('.map-loading').style.display='none'"></iframe>
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%BF%E6%A9%8B%E7%9F%B3%E6%9D%90" target="_blank" rel="noopener noreferrer" class="absolute bottom-5 left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-card/95 px-4 py-2 text-sm font-bold text-[LinkText] shadow-lg shadow-foreground/10 transition hover:bg-card">
             Googleマップで開く
             <ExternalLink className="size-4" aria-hidden="true" />
           </a>
         </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="container mx-auto scroll-mt-28 px-4 py-20 md:py-28">
-    <Card className="mx-auto w-full rounded-[2rem] bg-foreground p-0 py-0 text-background">
-      <CardContent className="grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
-        <div>
-          <p class="text-base font-bold tracking-[0.28em] text-muted">お問い合わせ</p>
-          <h2 class="mt-3 font-serif-jp text-2xl font-semibold tracking-[0.12em] md:text-4xl">どんな小さなことでもお気軽にご相談ください</h2>
-          <p class="mt-4 text-base leading-8 text-background/82">大崎市鹿島台を中心に、石巻・大崎エリアからのご相談も承ります。お墓の状態確認、費用の目安、工事の進め方など、まずはお電話でお気軽にお問い合わせください。</p>
-          <dl class="mt-8 grid gap-4 text-base leading-8 md:grid-cols-3">
-            <Card className="rounded-2xl bg-card/10 p-5 py-5 text-background ring-background/10"><dt class="flex items-center gap-2 text-muted"><Clock className="size-4" aria-hidden="true" />営業時間</dt><dd class="font-semibold text-background">08:00〜17:00</dd></Card>
-            <Card className="rounded-2xl bg-card/10 p-5 py-5 text-background ring-background/10"><dt class="flex items-center gap-2 text-muted"><CalendarOff className="size-4" aria-hidden="true" />休業日</dt><dd class="font-semibold text-background">日曜日</dd></Card>
-            <Card className="rounded-2xl bg-card/10 p-5 py-5 text-background ring-background/10"><dt class="flex items-center gap-2 text-muted"><Printer className="size-4" aria-hidden="true" />ファックス</dt><dd class="font-semibold text-background">0229-25-8446</dd></Card>
-          </dl>
-        </div>
-        <a href="tel:0229-25-8445" class={buttonVariants({ size: 'lg', className: 'gap-2 px-8 py-5 text-center text-2xl md:text-3xl' })}><Phone className="size-6" aria-hidden="true" />0229-25-8445</a>
-      </CardContent>
-    </Card>
-    {contactFormUrl && (
-      <Card id="form" className="mt-8 rounded-[2rem] bg-card p-0 py-0 shadow-xl shadow-foreground/10">
-        <iframe
-          title="有限会社板橋石材 お問い合わせフォーム"
-          src={contactFormUrl}
-          class="h-[900px] w-full border-0"
-          loading="lazy"
-        ></iframe>
-      </Card>
-    )}
+  <section id="contact" class="scroll-mt-28 bg-background py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <SectionHeading title="お問い合わせ" />
+      <div>
+        <h3 class="font-serif-jp text-2xl font-semibold tracking-[0.12em] text-foreground md:text-3xl">どんな小さなことでもお気軽にご相談ください</h3>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">大崎市鹿島台を中心に、石巻・大崎エリアからのご相談も承ります。ご来店前の確認や、現地でのお墓の状態確認もお気軽にご連絡ください。</p>
+        <dl class="mt-7 grid gap-3 text-base leading-7 md:grid-cols-4">
+          <Card className="rounded-2xl bg-primary p-4 py-4 text-primary-foreground ring-primary/20"><dt class="flex items-center gap-2 text-primary-foreground/82"><Phone className="size-4" aria-hidden="true" />電話</dt><dd><a href="tel:0229-25-8445" class="font-semibold text-primary-foreground">0229-25-8445</a></dd></Card>
+          <Card className="rounded-2xl bg-foreground p-4 py-4 text-background ring-background/10"><dt class="flex items-center gap-2 text-background/68"><Printer className="size-4" aria-hidden="true" />ファックス</dt><dd class="font-semibold text-background">0229-25-8446</dd></Card>
+          <Card className="rounded-2xl bg-foreground p-4 py-4 text-background ring-background/10"><dt class="flex items-center gap-2 text-background/68"><Clock className="size-4" aria-hidden="true" />営業時間</dt><dd class="font-semibold text-background">08:00〜17:00</dd></Card>
+          <Card className="rounded-2xl bg-foreground p-4 py-4 text-background ring-background/10"><dt class="flex items-center gap-2 text-background/68"><CalendarOff className="size-4" aria-hidden="true" />休業日</dt><dd class="font-semibold text-background">日曜日</dd></Card>
+        </dl>
+      </div>
+      {contactFormUrl && (
+        <Card id="form" className="mt-8 rounded-[2rem] bg-card p-0 py-0 shadow-xl shadow-foreground/10">
+          <iframe
+            title="有限会社板橋石材 お問い合わせフォーム"
+            src={contactFormUrl}
+            class="h-[900px] w-full border-0"
+            loading="lazy"
+          ></iframe>
+        </Card>
+      )}
+    </div>
   </section>
 </BaseLayout>
