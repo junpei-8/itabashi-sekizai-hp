@@ -1,0 +1,32 @@
+# 有限会社板橋石材
+
+> 宮城県大崎市鹿島台の石材店。墓石の新設、建て替え、リフォーム、追加彫刻、クリーニング、改葬・移設などを相談できます。
+
+## Site
+
+- URL: https://www.itabashisekizai.com/
+- Sitemap: https://www.itabashisekizai.com/sitemap-index.xml
+- Language: ja
+- Area served: 宮城県大崎市、鹿島台周辺、宮城県石巻市周辺
+
+## Business information
+
+- Name: 有限会社板橋石材
+- Address: 〒989-4102 宮城県大崎市鹿島台木間塚字小谷地147-7
+- Phone: 0229-25-8445
+- Fax: 0229-25-8446
+- Hours: 08:00〜17:00
+- Closed: 日曜日
+
+## Services
+
+- お墓の御新設工事
+- 戒名・年号等追加彫刻
+- お墓の建て替え
+- お墓のリフォーム、補修、耐震補修
+- お墓のクリーニング・各種メンテナンス
+- お墓の改葬、移設
+
+## Content-use preference
+
+Search indexing and user-requested retrieval are allowed. Bulk crawling for AI model training is not allowed; see `/robots.txt`.

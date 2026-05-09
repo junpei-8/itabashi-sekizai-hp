@@ -1,0 +1,28 @@
+export const siteConfig = {
+  name: '有限会社板橋石材',
+  url: 'https://www.itabashisekizai.com',
+  description: '宮城県大崎市鹿島台の有限会社板橋石材。墓石の新設、建て替え、リフォーム、追加彫刻、クリーニング、改葬・移設までお気軽にご相談ください。',
+  ogImage: '/og-image.png',
+  locale: 'ja_JP',
+  themeColor: '#1f1d1b',
+  geo: {
+    region: 'JP-04',
+    placename: '宮城県大崎市鹿島台',
+    latitude: 38.585,
+    longitude: 141.09,
+  },
+  business: {
+    type: 'Stonemason',
+    telephone: '+81-229-25-8445',
+    faxNumber: '+81-229-25-8446',
+    postalCode: '989-4102',
+    addressRegion: '宮城県',
+    addressLocality: '大崎市',
+    streetAddress: '鹿島台木間塚字小谷地147-7',
+    openingDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '17:00',
+    areaServed: ['宮城県大崎市', '宮城県石巻市', '鹿島台'],
+    priceRange: '¥¥',
+  },
+} as const;

@@ -1,4 +1,6 @@
 ---
+import { SEO } from 'astro-seo';
+import { siteConfig } from '@/config/site';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -8,13 +10,24 @@ import StructuredData from '../components/StructuredData.astro';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description } = Astro.props;
-const site = Astro.site ?? new URL('https://www.itabashisekizai.com');
+const {
+  title,
+  description,
+  noindex = false,
+  ogImage: ogImagePath = siteConfig.ogImage,
+  ogType = 'website',
+} = Astro.props;
+const site = Astro.site ?? new URL(siteConfig.url);
 const canonical = new URL(Astro.url.pathname, site).toString();
-const ogImage = new URL('/og-image.png', site).toString();
-const pageTitle = title.includes('有限会社板橋石材') ? title : `${title} | 有限会社板橋石材`;
+const ogImage = new URL(ogImagePath, site).toString();
+const siteName = siteConfig.name;
+const ogImageAlt = '宮城県大崎市鹿島台の墓石店・有限会社板橋石材';
+const pageTitle = title === siteName || title.includes(' | ') ? title : `${title} | ${siteName}`;
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
@@ -24,27 +37,49 @@ const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#1f1d1b" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="geo.region" content="JP-04" />
-    <meta name="geo.placename" content="宮城県大崎市鹿島台" />
-    <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="有限会社板橋石材" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <SEO
+      title={pageTitle}
+      description={description}
+      canonical={canonical}
+      noindex={noindex}
+      nofollow={false}
+      robotsExtras="max-image-preview:large"
+      openGraph={{
+        basic: {
+          title: pageTitle,
+          type: ogType,
+          image: ogImage,
+          url: canonical,
+        },
+        image: {
+          width: 1200,
+          height: 630,
+          type: 'image/png',
+          alt: ogImageAlt,
+        },
+        optional: {
+          description,
+          locale: siteConfig.locale,
+          siteName,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+      }}
+      extend={{
+        meta: [
+          { name: 'theme-color', content: siteConfig.themeColor },
+          { name: 'geo.region', content: siteConfig.geo.region },
+          { name: 'geo.placename', content: siteConfig.geo.placename },
+        ],
+        link: [
+          { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+          { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+          { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+          { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap' },
+        ],
+      }}
+    />
     <StructuredData />
     {gaMeasurementId && (
       <>

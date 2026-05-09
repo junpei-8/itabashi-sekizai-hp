@@ -5,11 +5,13 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-const site = process.env.PUBLIC_SITE_URL ?? 'https://www.itabashisekizai.com';
+const defaultSite = 'https://www.itabashisekizai.com';
+const site = new URL(process.env.PUBLIC_SITE_URL ?? defaultSite).origin;
 
 // https://astro.build/config
 export default defineConfig({
   site,
+  trailingSlash: 'always',
   integrations: [
     react(),
     sitemap(),
