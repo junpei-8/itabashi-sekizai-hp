@@ -66,7 +66,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="consult" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
+  <section id="consult" class="scroll-mt-(--site-header-height) bg-muted/45 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="お墓のご相談" lead="小さな不安の段階でご相談いただくことで、補修で済む場合もあります。新設・建て替えだけでなく、点検やお手入れのご相談もお気軽にどうぞ。" />
       <div class="grid gap-5 md:grid-cols-2">
@@ -84,7 +84,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="services" class="scroll-mt-28 bg-background py-20 md:py-28">
+  <section id="services" class="scroll-mt-(--site-header-height) bg-background py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="業務案内" lead="墓石の新設から補修・清掃・改葬まで、現地の状況を確認しながら必要な工事をご提案します。" />
       <div class="grid gap-6">
@@ -108,7 +108,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="gravestones" class="scroll-mt-28 bg-card/55 py-20 md:py-28">
+  <section id="gravestones" class="scroll-mt-(--site-header-height) bg-card/55 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="墓石の種類" lead="お墓の形は、ご家族の想い・墓地の広さ・お参りのしやすさによって適したものが変わります。伝統的な和型墓、すっきりとした洋型墓、想いを形にするデザイン墓まで、石材選びから設計・施工まで丁寧にご提案します。" />
       <div class="mt-10 grid gap-6 md:grid-cols-3">
@@ -159,7 +159,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="products" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
+  <section id="products" class="scroll-mt-(--site-header-height) bg-muted/45 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="取扱品" lead="墓石だけでなく、外柵・納骨堂・記念碑・表札など、石材工事全般に対応しています。" />
       <div class="flex flex-wrap gap-2.5 sm:gap-3">
@@ -170,13 +170,13 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
 
   <Faq />
 
-  <section id="company" class="scroll-mt-28 bg-card/55 py-20 md:py-28">
+  <section id="company" class="scroll-mt-(--site-header-height) bg-card/55 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="会社案内" lead="宮城県大崎市鹿島台で、墓石工事・追加彫刻・補修・クリーニング・改葬まで承っています。ご来店前の確認や、現地でのお墓の状態確認もお気軽にお問い合わせください。" />
-      <Card className="rounded-[2rem] bg-card/80 p-5 py-5 backdrop-blur-xl md:p-7 md:py-7">
+      <Card className="rounded-[2rem] bg-card/80 px-5 py-3 backdrop-blur-xl md:px-7 md:py-4">
         <dl class="grid gap-x-10 md:grid-cols-2">
-          {info.map(([term, desc]) => (
-            <div class="border-b border-border py-4">
+          {info.map(([term, desc], index) => (
+            <div class:list={['border-b border-border py-3', index === info.length - 1 && 'border-b-0', index >= info.length - 2 && 'md:border-b-0']}>
               <dt class="text-base font-bold tracking-[0.18em] text-muted-foreground">{term}</dt>
               <dd class="mt-2 text-lg leading-9 text-muted-foreground">{term === '電話' ? <a class="font-bold text-primary underline underline-offset-4 decoration-primary/35" href="tel:0229-25-8445">{desc}</a> : desc}</dd>
             </div>
@@ -186,7 +186,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="access" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
+  <section id="access" class="scroll-mt-(--site-header-height) bg-muted/45 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="アクセス" lead={accessLead} />
       <div class="grid gap-8 lg:grid-cols-2">
@@ -212,7 +212,7 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
     </div>
   </section>
 
-  <section id="contact" class="scroll-mt-28 bg-background py-20 md:py-28">
+  <section id="contact" class="scroll-mt-(--site-header-height) bg-background py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="お問い合わせ" />
       <div>

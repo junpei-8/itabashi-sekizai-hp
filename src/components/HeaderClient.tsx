@@ -20,6 +20,18 @@ const navItems = [
   { href: "#access", label: "アクセス", sectionIds: ["access", "contact"] },
 ]
 
+const mobileNavItems = [
+  { href: "#top", label: "トップ" },
+  { href: "#consult", label: "ご相談内容" },
+  { href: "#services", label: "業務案内" },
+  { href: "#gravestones", label: "墓石の種類" },
+  { href: "#products", label: "取扱品" },
+  { href: "#faq", label: "よくある質問" },
+  { href: "#company", label: "会社案内" },
+  { href: "#access", label: "アクセス" },
+  { href: "#contact", label: "お問い合わせ" },
+]
+
 function scrollToSection(href: string) {
   const target = href === "#top" ? document.documentElement : document.getElementById(href.slice(1))
 
@@ -101,7 +113,7 @@ export default function HeaderClient() {
         isAtTop ? "border-transparent bg-transparent text-background" : "border-border bg-background text-foreground",
       )}
     >
-      <div className="container mx-auto flex min-h-16 items-center justify-between gap-5 px-4 py-2">
+      <div className="container mx-auto flex min-h-(--site-header-height) items-center justify-between gap-5 px-4 py-1.5 lg:py-2">
         <a
           href="#top"
           className="group flex shrink-0 items-center gap-2.5"
@@ -111,8 +123,8 @@ export default function HeaderClient() {
             scrollToSection("#top")
           }}
         >
-          <img src="/logo.svg" alt="" className="size-9 shrink-0 rounded-sm" width="36" height="36" decoding="async" />
-          <span className={cn("whitespace-nowrap font-serif-jp text-base font-semibold tracking-[0.12em]", isAtTop ? "text-background" : "text-foreground")}>有限会社板橋石材</span>
+          <img src="/logo.svg" alt="" className="size-8 shrink-0 rounded-sm lg:size-9" width="36" height="36" decoding="async" />
+          <span className={cn("whitespace-nowrap font-serif-jp text-sm font-semibold tracking-[0.12em] lg:text-base", isAtTop ? "text-background" : "text-foreground")}>有限会社板橋石材</span>
         </a>
 
         <nav className="hidden items-center gap-2 lg:flex" aria-label="主要ナビゲーション">
@@ -165,7 +177,7 @@ export default function HeaderClient() {
               <SheetTitle>有限会社板橋石材</SheetTitle>
             </SheetHeader>
             <nav className="grid gap-2" aria-label="スマートフォン用ナビゲーション">
-              {navItems.map((item) => (
+              {mobileNavItems.map((item) => (
                 <SheetClose asChild key={item.href}>
                   <AnchorButton href={item.href} className="w-full justify-start rounded-xl px-4 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground">
                     {item.label}
