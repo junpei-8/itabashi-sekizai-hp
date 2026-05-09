@@ -43,7 +43,7 @@ const types = [
     variant: 'design',
   },
 ];
-const products = ['墓石（和型・洋型・デザイン・傾斜型・耐震加工型・免震加工型）', '納骨堂', '銘碑', '物置台', '外柵', '敷石', '記念碑', '供養塔', '五輪塔', '燈篭', '経台', '地蔵', 'お社', '石像', '仏像', '門柱', '表札', '石彫刻品', '石碑の文字彫り込み', 'ペットのお墓'];
+const products = ['和型墓石', '洋型墓石', 'デザイン墓石', '傾斜型墓石', '耐震加工型墓石', '免震加工型墓石', '納骨堂', '銘碑', '物置台', '外柵', '敷石', '記念碑', '供養塔', '五輪塔', '燈篭', '経台', '地蔵', 'お社', '石像', '仏像', '門柱', '表札', '石彫刻品', '石碑の文字彫り込み', 'ペットのお墓'];
 const info = [['社名', '有限会社板橋石材'], ['所在地', '〒989-4102 宮城県大崎市鹿島台木間塚字小谷地147-7'], ['電話', '0229-25-8445'], ['ファックス', '0229-25-8446'], ['営業時間', '08:00〜17:00'], ['休業日', '日曜日']];
 const accessLead = '有限会社板橋石材は、宮城県大崎市鹿島台木間塚字小谷地147-7にあります。\nやすらぎホールかしまだい方面へ向かい、その通路を進んでいただくと当店があります。道順が不安な場合は、ご来店前にお電話ください。';
 const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
@@ -162,8 +162,8 @@ const contactFormUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL;
   <section id="products" class="scroll-mt-28 bg-muted/45 py-20 md:py-28">
     <div class="container mx-auto px-4">
       <SectionHeading title="取扱品" lead="墓石だけでなく、外柵・納骨堂・記念碑・表札など、石材工事全般に対応しています。" />
-      <div class="flex flex-wrap gap-3">
-        {products.map((item) => <Badge variant="outline" className="h-auto rounded-full bg-card px-5 py-3 text-lg font-semibold text-muted-foreground">{item}</Badge>)}
+      <div class="flex flex-wrap gap-2.5 sm:gap-3">
+        {products.map((item) => <Badge variant="outline" className="h-auto max-w-full whitespace-normal rounded-full bg-card px-4 py-2.5 text-center text-base font-semibold leading-6 text-muted-foreground sm:px-5 sm:py-3 sm:text-lg">{item}</Badge>)}
       </div>
     </div>
   </section>
